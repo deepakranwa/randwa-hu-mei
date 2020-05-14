@@ -10,6 +10,16 @@
         <header class="wrapper">
             <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logo.png' %}" alt="djangonautic" /></a></h1>
         </header>
+        <nav>
+            <ul>
+                <li>
+                    <form action="{% url 'accounts:logout' %}" method="POST" >
+                        {% csrf_token %}
+                        <button type="submit">LogOut!</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
         <div class="wrapper">
             {% block content %}
             {% endblock %}
