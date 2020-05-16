@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Article(models.Model):
@@ -7,6 +8,7 @@ class Article(models.Model):
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     thumb_pic=models.ImageField(blank=True,default='default_wli.jpeg')
+    author=models.ForeignKey(User,default=None)  # foreign ey added .. after importing the user models from authentication.models
     # add in author later
 
     def __str__(self):
