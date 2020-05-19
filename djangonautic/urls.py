@@ -1,6 +1,8 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 from . import views
+#gotta import one more views... of the articles one.. but cant just import it as views... same name woyld throw an error
+from articles import views as articles_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
@@ -8,7 +10,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^articles/', include('articles.urls')),
     url(r'^about/$', views.about),
-    url(r'^$', views.homepage),
+    url(r'^$', articles_views.article_list,name="home_page"),
     url(r'^accounts/',include('accounts.url'))
 ]
 
