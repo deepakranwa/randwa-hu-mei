@@ -19,8 +19,10 @@ def article_detail(request, slug):
 @login_required(login_url="/accounts/login/")
 def create_article(request):
     if(request.method=='POST'):
+        #see the form_for_models.py file.. it has  a class Create_article
         form=form_for_models.Create_article(request.POST,request.FILES) # This is validating the data ... ! Noice.      # files when we upload.. req 2 thing.1) enctype in form in html_templ
         # second... they dont come along the request.POST data.. so second argument.. request.FILES
+        
         if(form.is_valid()):
             # now we want to add user also... and since we dont just fet it from Front end ,, we have to get it from logged in user.. so we wont just simply 
             # save it .. first add in the returned instance a user...

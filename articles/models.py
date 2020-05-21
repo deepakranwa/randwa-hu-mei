@@ -8,7 +8,7 @@ class Article(models.Model):
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     thumb_pic=models.ImageField(blank=True,default='default_wli.jpeg')
-    author=models.ForeignKey(User,default=None)  # foreign ey added .. after importing the user models from authentication.models
+    author=models.ForeignKey(User,default=None,on_delete=models.CASCADE)  # foreign ey added .. after importing the user models from authentication.models
     # add in author later
 
     def __str__(self):
