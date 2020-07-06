@@ -52,7 +52,7 @@ nav button {
   color: rgb(200, 203, 241);
   cursor: pointer;
   text-decoration: yellow;
-  border: 1px solid red;
+  border: 1px solid rgb(230, 0, 0);
   font-size: 1em;
   border: 200px;
 }
@@ -143,12 +143,17 @@ button.Highlight {
 .head_article {
   display: inline;
 }
-.footer {
-  position: relative;
-  bottom: 0;
-  text-align: center;
+.card-title{
+    text-decoration: underline;
+    font-style: italic;
+    text-transform: capitalize;
+}
+/* .footer {
+ bottom:0;
+text-align: center;
   width: 100%;
   height: 50px;
   font-size: 15px;
   color: aquamarine;
-}
+  margin-top:calc(5% + 60px);
+} */
