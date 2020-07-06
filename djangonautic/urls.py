@@ -9,7 +9,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^articles/', include('articles.urls')),
-    url(r'^about/$', views.about),
+    # url(r'^about/$', views.about),
     url(r'^$', articles_views.article_list,name="home_page"),
     url(r'^accounts/',include('accounts.url'))
 ]

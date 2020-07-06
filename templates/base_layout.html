@@ -1,47 +1,52 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Djangonauts</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}" />
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="wrapper">
-      <h1>
-        <a href="{% url 'home_page' %}"
-          ><img src="{% static 'logo.png' %}" alt="djangonautic"
-        /></a>
-      </h1>
-      <nav>
-        <ul>
-          {% if user.is_authenticated %}
+        <h1>
+            <a href="{% url 'home_page' %}"><img src="{% static 'logo-revised-1.png' %}" alt="djangonautic" /></a>
+        </h1>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
 
-          <li>
-            <form action="{% url 'accounts:logout' %}" method="POST">
-              {% csrf_token %}
-              <button type="submit">LogOut!</button>
-            </form>
-          </li>
-          <li>
-            <a href="{% url 'articles:create' %}">
-              <button class="Highlight">New Article</button></a
-            >
-          </li>
-          {% else %}
+                <li>
+                    <form action="{% url 'accounts:logout' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit">LogOut!</button>
+                    </form>
+                </li>
+                <li>
+                    <a href="{% url 'articles:create' %}">
+                        <button class="Highlight">New Article</button></a>
+                </li>
+                {% else %}
 
-          <li>
-            <a href="{% url 'accounts:login' %}"><button>LogIn</button></a>
-          </li>
-          <li>
-            <a href="{% url 'accounts:signup' %}"><button>SignUp</button></a>
-          </li>
-          {% endif %}
-        </ul>
-      </nav>
+                <li>
+                    <a href="{% url 'accounts:login' %}"><button>LogIn</button></a>
+                </li>
+                <li>
+                    <a href="{% url 'accounts:signup' %}"><button>SignUp</button></a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
     </header>
     <div class="wrapper">
-      {% block content %} {% endblock %}
+        {% block content %} {% endblock %}
     </div>
-  </body>
+    <br><br><br><br><br><br><br>
+    <div class="footer">
+        Made with <span style="color: #e25555;">&#9829;</span> by <a
+            href="https://www.facebook.com/uchihamangekyoun">Yash</a>
+    </div>
+</body>
+
 </html>

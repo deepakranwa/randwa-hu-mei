@@ -25,8 +25,8 @@ SECRET_KEY = 'v=q4mi9r6zuq8fg3ej-nrt)pt6h$jm^y)$wo))+d^&c&f2i#&n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['bloggy.pythonanywhere.com','127.0.0.1']
+#remove this 127 in the end! ysv
 
 # Application definition
 
@@ -52,11 +52,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'djangonautic.urls'
-
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))# made a change here
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(SETTINGS_PATH, 'templates')],#made a change here
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,8 +127,8 @@ STATICFILES_DIRS = (
 
 
 #Adding settings for media ki things
-MEDIA_URL='/pikcha/'  # added /... just like static url...url prefix which we will use for serving all our medias online   # basicaally serving purpose help k liye only 
+MEDIA_URL='/pikcha/'  # added /... just like static url...url prefix which we will use for serving all our medias online   # basicaally serving purpose help k liye only
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'my_media')#where all medias get uploaded 
+MEDIA_ROOT=os.path.join(BASE_DIR,'my_media')#where all medias get uploaded
 
 #Now we want this Media_ROOT wali medias to be servable.. to be url-able... so add in urls.py's urlapatterns
